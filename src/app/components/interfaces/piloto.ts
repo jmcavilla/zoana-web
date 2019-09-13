@@ -3,6 +3,7 @@ export interface Piloto {
   nombre:string;
   auto:string;
   resultados:any[];
+  vueltaRapida:any[];
   puntos:number;
   equipo:number;
   pais:string;

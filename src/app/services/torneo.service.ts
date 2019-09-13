@@ -27,6 +27,12 @@ export class TorneoService extends BaseService{
         }
       });
 
+      piloto.vueltaRapida.forEach(vuelta => {
+        if(vuelta > 0){
+          puntos += 1;
+        }
+      });
+
       piloto.puntos = puntos;
     });
   }
