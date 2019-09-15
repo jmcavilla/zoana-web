@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private _service:CarouselService) { }
 
-  private listHomeCarousel:CarouselInfo[] = [];
+  listHomeCarousel:CarouselInfo[] = [];
 
   ngOnInit() {
     this._service.getHomeCarousel().subscribe(data => {
