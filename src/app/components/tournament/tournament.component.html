@@ -8,7 +8,7 @@
       <a *ngIf="showEquipo" class="nav-item nav-link" id="nav-team-tab" data-toggle="tab" href="#nav-team-table" role="tab" aria-controls="nav-profile" aria-selected="false">Equipos</a>
     </div>
   </nav>
-  <div class="tab-content" id="nav-tabContent">
+  <div class="tab-content" id="nav-tabContent" *ngIf="data | async">
     <div class="tab-pane fade show active" id="nav-driver-table" role="tabpanel" aria-labelledby="nav-driver-table-tab">
         <app-table [torneo]="torneo" [showCountryHeader]="showCountryHeader" ></app-table>
     </div>

@@ -23,6 +23,7 @@ export class TournamentComponent implements OnInit {
   };
   showEquipo:boolean;
   showCountryHeader:boolean;
+  data:Promise<Torneo>;
 
   constructor(private _activatedRout:ActivatedRoute,private _service:TorneoService) {
     this._activatedRout.params.subscribe(params => {
@@ -42,6 +43,9 @@ export class TournamentComponent implements OnInit {
         this._service.calculatePointsTeams(this.torneo.listaPilotos, this.torneo.listaEquipos);
         this.showCountryHeader = this._service.checkShowCountryHeader(this.torneo.listaPilotos);
         this.showEquipo = this.torneo.listaEquipos.length > 0 ? true : false;
+        this.data = new Promise<Torneo>((resolve) => {
+          resolve(this.torneo);
+        });
       }
     }, error => {});
   }
