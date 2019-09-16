@@ -84,6 +84,11 @@
                                 <h6>{{piloto.puntos}}° pts</h6>
                             </div>
                           </div>
+                          <div class="row" *ngIf="piloto.equipo == equipo.id">
+                            <div class="col-2" *ngFor="let resultado of piloto.resultados">
+                              <span class="badge badge-secondary">{{resultado}}</span>
+                            </div>
+                          </div>
                         </ng-container>
                       </div>
                     </div>
@@ -105,6 +110,11 @@
                 <ng-container *ngFor="let equipo of torneo.listaEquipos" >
                   <p class="card-text text-body" *ngIf="equipo.id == piloto.equipo && piloto.equipo > 0">{{equipo.nombre}}</p>
                 </ng-container>
+                <div class="row">
+                  <div class="col-2" *ngFor="let resultado of piloto.resultados">
+                    <span class="badge badge-secondary">{{resultado}}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

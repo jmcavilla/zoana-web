@@ -24,6 +24,7 @@ export class TournamentComponent implements OnInit {
   showEquipo:boolean;
   showCountryHeader:boolean;
   data:Promise<Torneo>;
+  showTable:boolean = false;
 
   constructor(private _activatedRout:ActivatedRoute,private _service:TorneoService) {
     this._activatedRout.params.subscribe(params => {
