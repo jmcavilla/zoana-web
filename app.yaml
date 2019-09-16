@@ -24,5 +24,3 @@ handlers:
   secure: always
   static_files: dist/index.html
   upload: dist/.*
-skip_files:
-- ^(?!dist)  # Skip any files not in the dist folder
