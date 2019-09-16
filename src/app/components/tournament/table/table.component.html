@@ -1,9 +1,10 @@
-<ng-container *ngIf="!showEquipo; else showEquipoTable">
-  <h1>Tabla de Pilotos - {{torneo.nombre}}</h1>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr class="text-center">
-        <th scope="col" class="align-middle">#</th>
+<ng-container *ngIf="!showCards; else showCardTable">
+  <ng-container *ngIf="!showEquipo; else showEquipoTable">
+    <h1>Tabla de Pilotos - {{torneo.nombre}}</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr class="text-center">
+          <th scope="col" class="align-middle">#</th>
         <th scope="col" class="align-middle">PSN ID</th>
         <th scope="col" class="align-middle" *ngIf="showCountryHeader">País</th>
         <!-- <th scope="col" class="align-middle">Nombre</th> -->
@@ -17,23 +18,23 @@
     </thead>
     <tbody>
       <tr class="text-center" *ngFor="let piloto of torneo.listaPilotos | orderBy:'puntos';let i = index">
-          <th scope="row" class="align-middle">{{i+1}}</th>
-          <td class="align-middle">{{piloto.psnId}}</td>
-          <td class="align-middle" *ngIf="showCountryHeader" [innerHTML]="piloto.pais | countryFlag"></td>
-          <ng-container *ngFor="let equipo of torneo.listaEquipos" >
-            <td  class="align-middle" *ngIf="equipo.id == piloto.equipo && piloto.equipo > 0">{{equipo.nombre}}</td>
-          </ng-container>
-          <ng-container *ngFor="let item of piloto.resultados; let i = index">
+        <th scope="row" class="align-middle">{{i+1}}</th>
+        <td class="align-middle">{{piloto.psnId}}</td>
+        <td class="align-middle" *ngIf="showCountryHeader" [innerHTML]="piloto.pais | countryFlag"></td>
+        <ng-container *ngFor="let equipo of torneo.listaEquipos" >
+          <td  class="align-middle" *ngIf="equipo.id == piloto.equipo && piloto.equipo > 0">{{equipo.nombre}}</td>
+        </ng-container>
+        <ng-container *ngFor="let item of piloto.resultados; let i = index">
             <td class="align-middle" [ngClass]="{'table-warning': item == 1, 'table-secondary': item == 2, 'table-danger': item == 3}">{{item | position}}</td>
             <td class="align-middle" [ngClass]="{'bg-violet': piloto.vueltaRapida[i] === 1}"></td>
           </ng-container>
 
-        <td class="align-middle" [ngClass]="{'table-warning': i+1 == 1, 'table-secondary': i+1 == 2, 'table-danger': i+1 == 3}">{{piloto.puntos}}</td>
-      </tr>
-    </tbody>
-  </table>
-</ng-container>
-<ng-template #showEquipoTable>
+          <td class="align-middle" [ngClass]="{'table-warning': i+1 == 1, 'table-secondary': i+1 == 2, 'table-danger': i+1 == 3}">{{piloto.puntos}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #showEquipoTable>
     <h1>Tabla de Equipos - {{torneo.nombre}}</h1>
     <table class="table">
       <thead class="thead-dark">
@@ -51,5 +52,63 @@
         </tr>
       </tbody>
     </table>
-</ng-template>
+  </ng-template>
+</ng-container>
+<ng-template #showCardTable>
+    <ng-container *ngIf="showEquipo; else showEquipoTable">
+        <div class="row">
+          <div class="col-12 mt-3" *ngFor="let equipo of torneo.listaEquipos | orderBy:'puntos';let pos = index">
+            <div class="card" [ngClass]="{'bg-oro ': (pos+1) == 1, 'bg-plata':(pos+1) == 2, 'bg-bronce':(pos+1) == 3}">
+                <div class="row no-gutters">
+                  <div class="col-md-2">
+                    <img src="assets/images/teams/{{equipo.imagen}}" class="card-img-top align-middle" alt="">
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card-body">
+                      <h1 class="card-title">{{pos+1}}° - {{equipo.puntos}} pts</h1>
+                      <h2 class="card-subtitle mb-2 text-body">{{equipo.nombre}}</h2>
+                    </div>
+                  </div>
+                  <div class="col-md-7 align-content-middle">
+                    <div class="row">
+                      <div class="col-12">
+                        <ng-container *ngFor="let piloto of torneo.listaPilotos| orderBy:'puntos';let pos = index">
+                          <div class="row" *ngIf="piloto.equipo == equipo.id">
+                            <div class="col-12">
+                              <h4>{{piloto.psnId}}</h4>
+                            </div>
+                            <div class="col-12">
+                                <h6>{{pos+1}}°</h6>
+                            </div>
+                            <div class="col-12">
+                                <h6>{{piloto.puntos}}° pts</h6>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </ng-container>
+    <ng-template #showEquipoTable>
+        <div class="row">
+          <div class="col-4 mt-3" *ngFor="let piloto of torneo.listaPilotos | orderBy:'puntos';let pos = index">
+            <div class="card" [ngClass]="{'bg-oro ': (pos+1) == 1, 'bg-plata':(pos+1) == 2, 'bg-bronce':(pos+1) == 3}">
+              <img src="..." class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">{{pos+1}}° - {{piloto.puntos}} pts</h5>
+                <h6 class="card-subtitle mb-2 text-body">{{piloto.psnId}}</h6>
+                <div [innerHTML]="piloto.pais | countryFlag"></div>
+                <ng-container *ngFor="let equipo of torneo.listaEquipos" >
+                  <p class="card-text text-body" *ngIf="equipo.id == piloto.equipo && piloto.equipo > 0">{{equipo.nombre}}</p>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+    </ng-template>
 
+</ng-template>

@@ -1,5 +1,5 @@
 <div class="m-3">
-  <app-card-carousel></app-card-carousel>
+    <app-calendar [array]="torneo.listaCarreras"></app-calendar>
 </div>
 <div class="m-3">
   <nav>
@@ -10,10 +10,10 @@
   </nav>
   <div class="tab-content" id="nav-tabContent" *ngIf="data | async">
     <div class="tab-pane fade show active" id="nav-driver-table" role="tabpanel" aria-labelledby="nav-driver-table-tab">
-        <app-table [torneo]="torneo" [showCountryHeader]="showCountryHeader" ></app-table>
+        <app-table [torneo]="torneo" [showCountryHeader]="showCountryHeader" [showCards]="true"></app-table>
     </div>
     <div *ngIf="showEquipo" class="tab-pane fade" id="nav-team-table" role="tabpanel" aria-labelledby="nav-team-tab">
-        <app-table [torneo]="torneo" [showEquipo]="showEquipo"></app-table>
+        <app-table [torneo]="torneo" [showEquipo]="showEquipo" [showCards]="true"></app-table>
     </div>
   </div>
 </div>

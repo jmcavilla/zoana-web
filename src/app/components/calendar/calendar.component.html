@@ -1,10 +1,12 @@
-<div class="card-columns">
-<div class="card" style="width: 18rem;">
-  <img src="https://i2.wp.com/www.timejust.es/wp-content/uploads/2018/03/circuit-catalunya-1-1.jpg?fit=990%2C573&ssl=1" class="card-img-top" alt="cataluña">
-  <div class="card-body">
-    <h5 class="card-title">Fecha 1 - Super F1 - Barcelona</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">+ Info</a>
+<div class="row">
+  <div class="col-4" *ngFor="let item of array">
+    <div class="card" style="width: 18rem;"  >
+      <img [src]="item.imagenCircuito" class="card-img-top" alt="cataluña">
+      <div class="card-body">
+        <h5 class="card-title">Fecha {{item.numeroFecha}} - <p [innerHTML]="item.pais | countryFlag:item.circuito"></p></h5>
+        <p class="card-text">{{item.descripcion}}</p>
+        <a href="#" class="btn btn-primary">+ Info</a>
+      </div>
+    </div>
   </div>
-</div>
 </div>

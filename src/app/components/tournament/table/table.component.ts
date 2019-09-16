@@ -13,6 +13,7 @@ export class TableComponent implements OnInit {
   @Input() torneo: Torneo;
   @Input() showEquipo:boolean;
   @Input() showCountryHeader: boolean;
+  @Input() showCards: boolean;
 
   constructor(private _torneoService:TorneoService) { }
 
