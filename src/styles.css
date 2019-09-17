@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+.bg-violet{
+  background-color: #E033FF;
+}
+.bg-oro{
+  background-color: #ffbf00;
+}
+.bg-plata{
+  background-color: #8a9597;
+}
+.bg-bronce{
+  background-color: #cd7f32;
+}
+.align-content-middle{
+  display: flex;
+  align-items: center;
+
+}
+
+.badge-oro{
+  color: #000;
+  background-color: #ffbf00;
+}
+.badge-plata{
+  color: #fff;
+  background-color: #8a9597;
+}
+.badge-bronce{
+  color: #fff;
+  background-color: #cd7f32;
+}

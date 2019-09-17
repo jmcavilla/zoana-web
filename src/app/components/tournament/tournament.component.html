@@ -1,34 +1,60 @@
-<div class="row">
-  <div class="col-12">
-    <h2>Tablas</h2>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid bg-dark justify-content-center" >
+    <img [src]="torneo.logo" alt="">
   </div>
-</div>
-<div class="m-3">
-  <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-driver-table-tab" data-toggle="tab" href="#nav-driver-table" role="tab" aria-controls="nav-home" aria-selected="true">Pilotos</a>
-      <a *ngIf="showEquipo" class="nav-item nav-link" id="nav-team-tab" data-toggle="tab" href="#nav-team-table" role="tab" aria-controls="nav-profile" aria-selected="false">Equipos</a>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h2>Tablas</h2>
     </div>
-  </nav>
-  <div class="tab-content" id="nav-tabContent" *ngIf="data | async">
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customSwitch1" [(ngModel)]="showTable">
-        <label class="custom-control-label" for="customSwitch1">Mostrar Tabla</label>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="m-3">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-driver-table-tab" data-toggle="tab" href="#nav-driver-table" role="tab" aria-controls="nav-home" aria-selected="true">Pilotos</a>
+            <a *ngIf="showEquipo" class="nav-item nav-link" id="nav-team-tab" data-toggle="tab" href="#nav-team-table" role="tab" aria-controls="nav-profile" aria-selected="false">Equipos</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent" *ngIf="data | async">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" [(ngModel)]="showTable">
+              <label class="custom-control-label" for="customSwitch1">Mostrar Tabla</label>
+            </div>
+          <div class="tab-pane fade show active" id="nav-driver-table" role="tabpanel" aria-labelledby="nav-driver-table-tab">
+              <app-table [torneo]="torneo" [showCountryHeader]="showCountryHeader" [showCards]="!showTable"></app-table>
+          </div>
+          <div *ngIf="showEquipo" class="tab-pane fade" id="nav-team-table" role="tabpanel" aria-labelledby="nav-team-tab">
+              <app-table [torneo]="torneo" [showEquipo]="showEquipo" [showCards]="!showTable"></app-table>
+          </div>
+        </div>
       </div>
-    <div class="tab-pane fade show active" id="nav-driver-table" role="tabpanel" aria-labelledby="nav-driver-table-tab">
-        <app-table [torneo]="torneo" [showCountryHeader]="showCountryHeader" [showCards]="!showTable"></app-table>
     </div>
-    <div *ngIf="showEquipo" class="tab-pane fade" id="nav-team-table" role="tabpanel" aria-labelledby="nav-team-tab">
-        <app-table [torneo]="torneo" [showEquipo]="showEquipo" [showCards]="!showTable"></app-table>
+  </div>
+  <hr>
+  <div class="row" *ngIf="dataSanciones | async">
+    <div class="col-12">
+      <h2>Sanciones</h2>
+    </div>
+    <div class="col-12">
+        <ng-container  *ngFor="let sancion of sancionesList">
+          <button class="btn" style="pointer-events: none;" [ngClass]="{'btn-danger': sancion.gravedad == 1, 'btn-warning': sancion.gravedad == 2, 'btn-dark': sancion.gravedad == 3}" type="button" disabled>{{sancion.sancion}}</button>
+          <div class="alert alert-primary" role="alert">
+            {{sancion.piloto}} - Fecha {{sancion.fecha}}
+          </div>
+
+        </ng-container>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>Carreras</h2>
+    </div>
+    <div class="col-12">
+      <app-calendar [array]="torneo.listaCarreras"></app-calendar>
     </div>
   </div>
 </div>
-<hr>
-<div class="row">
-  <div class="col-12">
-    <h2>Carreras</h2>
-  </div>
-</div>
-<div class="m-3">
-  <app-calendar [array]="torneo.listaCarreras"></app-calendar>
-</div>
+

@@ -11,14 +11,17 @@ import { Router } from '@angular/router';
 export class CarouselComponent implements OnInit {
 
   @Input() listCarousel:CarouselInfo[];
+  @Input() goToDisabled:boolean = false;
+
   constructor(private _router:Router) { }
 
   ngOnInit() {
   }
 
   goTo(item:CarouselInfo){
-
-    this._router.navigate([item.router]);
+    if(!this.goToDisabled){
+      this._router.navigate([item.router]);
+    }
 
   }
 

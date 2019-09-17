@@ -4,6 +4,7 @@ import { Equipo } from './equipo';
 export interface Torneo {
   id:number;
   nombre:string;
+  logo:string;
   listaCarreras:Carrera[];
   listaPilotos:Piloto[];
   listaEquipos:Equipo[];

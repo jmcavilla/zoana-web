@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { TorneoService } from '../../services/torneo.service';
 import { Piloto } from '../interfaces/piloto';
 import { Equipo } from '../interfaces/equipo';
+import { CarouselInfo } from '../interfaces/carousel-info';
+import { SancionesService } from '../../services/sanciones.service';
+import { Sancion } from 'src/app/interfaces/sancion';
 
 @Component({
   selector: 'app-tournament',
@@ -16,6 +19,7 @@ export class TournamentComponent implements OnInit {
   torneo:Torneo = {
     "id":undefined,
     "nombre":undefined,
+    "logo":undefined,
     "listaCarreras":[],
     "listaPilotos":[],
     "listaEquipos":[],
@@ -25,8 +29,11 @@ export class TournamentComponent implements OnInit {
   showCountryHeader:boolean;
   data:Promise<Torneo>;
   showTable:boolean = false;
+  header:CarouselInfo[];
+  dataSanciones: Promise<Array<Sancion>>;
+  sancionesList:Sancion[];
 
-  constructor(private _activatedRout:ActivatedRoute,private _service:TorneoService) {
+  constructor(private _activatedRout:ActivatedRoute,private _service:TorneoService, private _sancionesService: SancionesService) {
     this._activatedRout.params.subscribe(params => {
       this.idTorneo = params['idTorneo'];
     });
@@ -36,7 +43,7 @@ export class TournamentComponent implements OnInit {
     this._service.getTorneos().subscribe(data => {
       if(this.idTorneo){
         data.filter(tournament => {
-          if(tournament.id == this.idTorneo){
+          if (tournament.id == this.idTorneo) {
             this.torneo = tournament;
           }
         });
@@ -47,7 +54,23 @@ export class TournamentComponent implements OnInit {
         this.data = new Promise<Torneo>((resolve) => {
           resolve(this.torneo);
         });
+        this._sancionesService.getSanciones().subscribe(data => {
+          console.log("entro");
+          this.sancionesList = [];
+          data.forEach(sancion => {
+            if (sancion.idTorneo === this.torneo.id){
+              this.sancionesList.push(sancion);
+            }
+          });
+          if (this.sancionesList.length > 0) {
+            this.dataSanciones = new Promise<Sancion[]>((resolve) => {
+              resolve(this.sancionesList);
+            });
+          }
+        });
       }
     }, error => {});
+
+
   }
 }
