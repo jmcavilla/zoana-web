@@ -15,3 +15,16 @@
   align-items: center;
 
 }
+
+.badge-oro{
+  color: #000;
+  background-color: #ffbf00;
+}
+.badge-plata{
+  color: #fff;
+  background-color: #8a9597;
+}
+.badge-bronce{
+  color: #fff;
+  background-color: #cd7f32;
+}

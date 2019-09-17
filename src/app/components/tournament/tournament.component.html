@@ -1,5 +1,7 @@
-<div class="m-3">
-    <app-calendar [array]="torneo.listaCarreras"></app-calendar>
+<div class="row">
+  <div class="col-12">
+    <h2>Tablas</h2>
+  </div>
 </div>
 <div class="m-3">
   <nav>
@@ -20,4 +22,13 @@
         <app-table [torneo]="torneo" [showEquipo]="showEquipo" [showCards]="!showTable"></app-table>
     </div>
   </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-12">
+    <h2>Carreras</h2>
+  </div>
+</div>
+<div class="m-3">
+  <app-calendar [array]="torneo.listaCarreras"></app-calendar>
 </div>

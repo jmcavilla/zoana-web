@@ -25,7 +25,7 @@
           <td  class="align-middle" *ngIf="equipo.id == piloto.equipo && piloto.equipo > 0">{{equipo.nombre}}</td>
         </ng-container>
         <ng-container *ngFor="let item of piloto.resultados; let i = index">
-            <td class="align-middle" [ngClass]="{'table-warning': item == 1, 'table-secondary': item == 2, 'table-danger': item == 3}">{{item | position}}</td>
+            <td class="align-middle" [ngClass]="{'table-warning': item == 1, 'table-secondary': item == 2, 'table-danger': item == 3, 'table-dark':item > 16}">{{item | position}}</td>
             <td class="align-middle" [ngClass]="{'bg-violet': piloto.vueltaRapida[i] === 1}"></td>
           </ng-container>
 
@@ -86,7 +86,7 @@
                           </div>
                           <div class="row" *ngIf="piloto.equipo == equipo.id">
                             <div class="col-2" *ngFor="let resultado of piloto.resultados">
-                              <span class="badge badge-secondary">{{resultado}}</span>
+                              <span class="badge"[ngClass]="{'badge-oro': resultado == 1, 'badge-plata': resultado == 2, 'badge-bronce': resultado == 3, 'badge-light': resultado > 3, 'badge-dark' : resultado > 16 }">{{resultado | position}}</span>
                             </div>
                           </div>
                         </ng-container>
@@ -100,9 +100,9 @@
     </ng-container>
     <ng-template #showEquipoTable>
         <div class="row">
-          <div class="col-4 mt-3" *ngFor="let piloto of torneo.listaPilotos | orderBy:'puntos';let pos = index">
+          <div class="col-lg-4 col-sm-12 mt-3" *ngFor="let piloto of torneo.listaPilotos | orderBy:'puntos';let pos = index">
             <div class="card" [ngClass]="{'bg-oro ': (pos+1) == 1, 'bg-plata':(pos+1) == 2, 'bg-bronce':(pos+1) == 3}">
-              <img src="..." class="card-img-top" alt="">
+              <!-- <img src="..." class="card-img-top" alt=""> -->
               <div class="card-body">
                 <h5 class="card-title">{{pos+1}}° - {{piloto.puntos}} pts</h5>
                 <h6 class="card-subtitle mb-2 text-body">{{piloto.psnId}}</h6>
@@ -112,7 +112,7 @@
                 </ng-container>
                 <div class="row">
                   <div class="col-2" *ngFor="let resultado of piloto.resultados">
-                    <span class="badge badge-secondary">{{resultado}}</span>
+                    <span class="badge"[ngClass]="{'badge-oro': resultado == 1, 'badge-plata': resultado == 2, 'badge-bronce': resultado == 3, 'badge-light': resultado > 3, 'badge-dark' : resultado > 16 }">{{resultado | position}}</span>
                   </div>
                 </div>
               </div>

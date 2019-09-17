@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PositionPipe implements PipeTransform {
 
   transform(position:number): any {
-
     if(position < 0){
       return 'NP';
     }
