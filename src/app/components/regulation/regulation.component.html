@@ -1,0 +1,315 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-12">
+      <h1>Reglamento</h1>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h3>Golpe de atrás</h3>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+      <h5 class="display-6">Piloto afectado se despista generando varias perdidas de posiciones</h5>
+      <div class="row">
+        <div class="col-6">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-header">{{mediumText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{twoPositions}}</h5>
+              <p class="card-text">Piloto causante espera que el piloto perjudicado se reincorpore y le devuelve la posición</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card text-white bg-danger mb-3">
+            <div class="card-header">{{highText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{threePositions}}</h5>
+              <p class="card-text">Piloto causante no espera a que el piloto perjudicado se reincorpore a la pista ni le devuelve la posición</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+      <h5 class="display-6">Piloto afectado no se despista pero pierde posición con 3os y piloto causante          </h5>
+      <div class="row">
+        <div class="col-6">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-header">{{mediumText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{twoPositions}}</h5>
+              <p class="card-text">Piloto causante no devuelve posición                  </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card text-white bg-info mb-3">
+            <div class="card-header">{{lowText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{onePosition}}</h5>
+              <p class="card-text">Piloto causante devuelve posición                  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+      <h5 class="display-6">Piloto no se despista pero pierde posición con el Piloto causante        </h5>
+      <div class="row">
+        <div class="col-6">
+          <div class="card text-white bg-info mb-3">
+            <div class="card-header">{{mediumText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{onePosition}}</h5>
+              <p class="card-text">Piloto causante no devuelve posición                  </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-header">{{nullText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{noPosition}}</h5>
+              <p class="card-text">Piloto causante devuelve posición                  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h3>Adelantamiento por fuera de pista*</h3>
+    </div>
+      <div class="col-lg-12 col-sm-12">
+        <h5 class="display-6">Piloto gana posición pasando por fuera de pista.**</h5>
+        <div class="row">
+          <div class="col-6">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header">{{nullText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{noPosition}}</h5>
+                <p class="card-text">El piloto pasa por fuera de pista debido a un incidente en la trazada que le impide transitar por dentro de los margenes</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card text-white bg-danger mb-3">
+              <div class="card-header">{{highText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{threePositions}}</h5>
+                <p class="card-text">Piloto transita deliberadamente por fuera de pista para ganar una posicion o sacar ventaja andideportiva</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-sm-12">
+        <h5 class="display-6">Piloto afectado no se despista pero pierde posición con 3os y piloto causante          </h5>
+        <div class="row">
+          <div class="col-6">
+            <div class="card text-white bg-info mb-3">
+              <div class="card-header">{{lowText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{warning}}</h5>
+                <p class="card-text">Piloto causante no devuelve posición                  </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card text-white bg-warning mb-3">
+              <div class="card-header">{{mediumText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{twoPositions}}</h5>
+                <p class="card-text">Piloto causante no devuelve posición                  </p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h3>Salida de pista*</h3>
+    </div>
+      <div class="col-lg-12 col-sm-12">
+        <h5 class="display-6">Piloto se despista y reingresa a pista</h5>
+        <div class="row">
+          <div class="col-6">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header">{{nullText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{noPosition}}</h5>
+                <p class="card-text">No perjudica a ningún piloto</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card text-white bg-info mb-3">
+              <div class="card-header">{{lowText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{onePosition}}</h5>
+                <p class="card-text">Al ingresar perjudica a un piloto que viene circulando por el circuito</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-sm-12">
+        <h5 class="display-6">Piloto sigue de largo en el frenaje de una curva</h5>
+        <div class="row">
+          <div class="col-2">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header">{{nullText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{noPosition}}</h5>
+                <p class="card-text">No sale de pista y no golpea a un contrincante al acomodar el auto                  </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card text-white bg-info mb-3">
+              <div class="card-header">{{lowText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{warning}}</h5>
+                <p class="card-text">No sale de pista pero golpea a un piloto al acomodar el auto</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card text-white bg-info mb-3">
+              <div class="card-header">{{lowText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{warning}}</h5>
+                <p class="card-text">Sale de pista e ingresa por lugar indebido al circuito sin golpear a 3os</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card text-white bg-danger mb-3">
+              <div class="card-header">{{highText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{threePositions}}</h5>
+                <p class="card-text">Sale de pista e ingresa por lugar indebido al circuito y golpea a otro piloto</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header">{{nullText}}</div>
+              <div class="card-body">
+                <h5 class="card-title">Sancion: {{noPosition}}</h5>
+                <p class="card-text">Sale de pista e ingresa por lugar correcto a la pista sin golpear a 3ros</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+              <div class="card text-white bg-warning mb-3">
+                <div class="card-header">{{mediumText}}</div>
+                <div class="card-body">
+                  <h5 class="card-title">Sancion: {{onePosition}}</h5>
+                  <p class="card-text">Sale de pista, ingresa por lugar correcto y golpea a un 3ro</p>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h3>Incumplimiento de recargas</h3>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+      <!-- <h5 class="display-6">No cumplir la recarga señalada por los puestos finales de la/s carrera/s anterior/es</h5> -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card text-white bg-danger mb-3">
+            <div class="card-header">{{highText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{desqualification}}</h5>
+              <p class="card-text">No cumplir la recarga señalada por los puestos finales de la/s carrera/s anterior/es</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h3>Salida de boxes</h3>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+      <h5 class="display-6">El piloto vuelve a pista inmediatamente despues de la salida de boxes, pasando por arriba la linea indicatoria de la salida segura.</h5>
+      <div class="row">
+        <div class="col-6">
+          <div class="card text-white bg-info mb-3">
+            <div class="card-header">{{lowText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{twoSeconds}}</h5>
+              <p class="card-text">Salida erronea de boxes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-header">{{mediumText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{fiveSeconds}}</h5>
+              <p class="card-text">Salida erronea de boxes reiterada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h3>Golpes y acciones antideportivas deliberadas</h3>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+      <h5 class="display-6">Cualquier accion en pista que perjudique deliberadamente a un contrincante</h5>
+      <div class="row">
+        <div class="col-6">
+          <div class="card text-white bg-secondary mb-3">
+            <div class="card-header">{{hardText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{desqualification}}</h5>
+              <p class="card-text">Conducta antideportiva (golpes, maniobras peligrosas, conducta impropia, todas realizadas de manera adrede)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card text-white bg-danger mb-3">
+            <div class="card-header">{{highText}}</div>
+            <div class="card-body">
+              <h5 class="card-title">Sancion: {{kickOut}}</h5>
+              <p class="card-text">Conducta antideportiva reiterada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+        <div class="alert alert-info" role="alert">
+            * Se considera paso por fuera de pista cuando 3 o más ruedas del vehículo se encuentran por fuera de la línea blanca que indica los límites de la pista, sin incluir pianos.
+        </div>
+        <div class="alert alert-info" role="alert">
+            ** El juego Project Cars penaliza automaticamente a los pilotos que pasen por fuera de pista, obligandolo a devolver la posicion, las penalizaciones que nosotros imponemos, van agregadas a la que realiza el juego.
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+

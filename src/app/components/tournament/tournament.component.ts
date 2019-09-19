@@ -55,7 +55,6 @@ export class TournamentComponent implements OnInit {
           resolve(this.torneo);
         });
         this._sancionesService.getSanciones().subscribe(data => {
-          console.log("entro");
           this.sancionesList = [];
           data.forEach(sancion => {
             if (sancion.idTorneo === this.torneo.id){

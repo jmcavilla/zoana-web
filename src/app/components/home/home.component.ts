@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
       data.forEach(torneo => {
         this._torneoService.calculatePointsDrivers(torneo.listaPilotos, torneo.puntajes);
       });
-      debugger;
       this.torneos = new Promise<Torneo[]>((resolve) => {
         resolve(data);
       });

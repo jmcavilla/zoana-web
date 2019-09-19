@@ -18,6 +18,7 @@ import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
 import { PositionPipe } from './pipes/position.pipe';
 import { FormsModule } from '@angular/forms';
 import { CountryFlagPipe } from './pipes/country-flag.pipe';
+import { RegulationComponent } from './components/regulation/regulation.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CountryFlagPipe } from './pipes/country-flag.pipe';
     OrderByPipe,
     CapitalizadoPipe,
     PositionPipe,
-    CountryFlagPipe
+    CountryFlagPipe,
+    RegulationComponent
   ],
   imports: [
     BrowserModule,

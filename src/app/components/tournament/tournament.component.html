@@ -38,14 +38,25 @@
       <h2>Sanciones</h2>
     </div>
     <div class="col-12">
-        <ng-container  *ngFor="let sancion of sancionesList">
-          <button class="btn" style="pointer-events: none;" [ngClass]="{'btn-danger': sancion.gravedad == 1, 'btn-warning': sancion.gravedad == 2, 'btn-dark': sancion.gravedad == 3}" type="button" disabled>{{sancion.sancion}}</button>
-          <div class="alert alert-primary" role="alert">
-            {{sancion.piloto}} - Fecha {{sancion.fecha}}
-          </div>
-
+        <ng-container  *ngFor="let torneoSancion of sancionesList">
+          <ng-container *ngIf="torneoSancion.idTorneo === torneo.id">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab-sanciones" role="tablist">
+                <a  *ngFor="let fecha of torneoSancion.fechas; let i = index" class="nav-item nav-link" [ngClass]="{'active': i+1 === torneoSancion.fechas.length}" id="nav-{{fecha.fecha}}-table-tab" data-toggle="tab" href="#nav-{{fecha.fecha}}-table" role="tab" aria-controls="nav-home" aria-selected="true">Fecha {{fecha.fecha}}</a>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div *ngFor="let fecha of torneoSancion.fechas; let i = index" class="tab-pane fade show" [ngClass]="{'active': i+1 === torneoSancion.fechas.length}" id="nav-{{fecha.fecha}}-table" role="tabpanel">
+                  <ng-container *ngFor="let sancion of fecha.sanciones">
+                    <button class="btn" style="pointer-events: none;" [ngClass]="{'btn-danger': sancion.gravedad == 1, 'btn-warning': sancion.gravedad == 2, 'btn-dark': sancion.gravedad == 3}" type="button" disabled>{{sancion.sancion}}</button>
+                      <div class="alert alert-primary" role="alert">
+                        {{sancion.piloto}} - Fecha {{sancion.fecha}}
+                      </div>
+                  </ng-container>
+                </div>
+            </div>
+          </ng-container>
         </ng-container>
-
     </div>
   </div>
   <div class="row">
