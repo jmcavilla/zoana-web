@@ -56,7 +56,7 @@
               <div class="tab-content" id="nav-tabContent">
                   <div *ngFor="let fecha of torneoSancion.fechas; let i = index" class="tab-pane fade show" [ngClass]="{'active': i+1 === torneoSancion.fechas.length}" id="nav-{{fecha.fecha}}-table" role="tabpanel">
                     <ng-container *ngFor="let sancion of fecha.sanciones">
-                      <button class="btn" style="pointer-events: none;" [ngClass]="{'btn-danger': sancion.gravedad == 1, 'btn-warning': sancion.gravedad == 2, 'btn-dark': sancion.gravedad == 3}" type="button" disabled>{{sancion.sancion}}</button>
+                      <button class="btn" style="pointer-events: none;" [ngClass]="{'btn-info': sancion.gravedad == 0, 'btn-danger': sancion.gravedad == 1, 'btn-warning': sancion.gravedad == 2, 'btn-dark': sancion.gravedad == 3}" type="button" disabled>{{sancion.sancion}}</button>
                         <div class="alert alert-primary" role="alert">
                           {{sancion.piloto}} - Fecha {{sancion.fecha}}
                         </div>
