@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   listHomeCarousel:CarouselInfo[] = [];
   torneos:Promise<Torneo[]>;
+  showLoading: boolean = true;
 
   ngOnInit() {
     this._service.getHomeCarousel().subscribe(data => {
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
         this._torneoService.calculatePointsDrivers(torneo.listaPilotos, torneo.puntajes);
       });
       this.torneos = new Promise<Torneo[]>((resolve) => {
+        this.showLoading = false;
         resolve(data);
       });
     }, error => {
