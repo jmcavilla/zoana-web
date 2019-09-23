@@ -7,4 +7,5 @@ export interface Piloto {
   puntos:number;
   equipo:number;
   pais:string;
+  participaciones:number;
 }
