@@ -43,6 +43,41 @@
     <hr>
     <div class="row" *ngIf="dataSanciones | async">
       <div class="col-12">
+        <h2>Puntaje</h2>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <ng-container  *ngFor="let point of torneo.puntajes; let i = index">
+            <div class="col-4">
+              <div class="card mb-3 text-center" [ngClass]="{'badge-oro': i === 0, 'bg-plata': i === 1, 'badge-bronce' : i === 2,'bg-info' : i < 16 && i > 2, 'bg-dark text-white' : i > 15}" style="max-width: 18rem;">
+                <div class="card-body" [ngClass]="{' text-white': i !== 0}">
+                  <ng-container *ngIf="i < 16">
+                    <h5 class="card-title">Pos. {{i+1}}°</h5>
+                  </ng-container>
+                  <ng-container *ngIf="i > 15">
+                    <h5 class="card-title">NT/NP</h5>
+                  </ng-container>
+                  <p class="card-text">{{point}} Pts.</p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+            <div class="col-4">
+              <div class="card mb-3 badge-violet text-center" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Vuelta Rapida</h5>
+
+
+                  <p class="card-text">1 Pt.</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row" *ngIf="dataSanciones | async">
+      <div class="col-12">
         <h2>Sanciones</h2>
       </div>
       <div class="col-12">
@@ -67,6 +102,7 @@
           </ng-container>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="col-12">
         <h2>Carreras</h2>

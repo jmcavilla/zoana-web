@@ -85,7 +85,7 @@
                             </div>
                           </div>
                           <div class="row" *ngIf="piloto.equipo == equipo.id">
-                            <div class="col-2" *ngFor="let resultado of piloto.resultados">
+                            <div class="col-1" *ngFor="let resultado of piloto.resultados">
                               <span class="badge"[ngClass]="{'badge-oro': resultado == 1, 'badge-plata': resultado == 2, 'badge-bronce': resultado == 3, 'badge-light': resultado > 3, 'badge-dark' : resultado > 16 }">{{resultado | position}}</span>
                             </div>
                           </div>
@@ -111,8 +111,8 @@
                   <p class="card-text text-body" *ngIf="equipo.id == piloto.equipo && piloto.equipo > 0">{{equipo.nombre}}</p>
                 </ng-container>
                 <div class="row">
-                  <div class="col-2" *ngFor="let resultado of piloto.resultados; let i = index">
-                    <span class="badge" [ngClass]="{'badge-oro': resultado == 1, 'badge-plata': resultado == 2, 'badge-bronce': resultado == 3, 'badge-light': resultado > 3, 'badge-dark' : resultado > 16, 'badge-violet' : piloto.vueltaRapida[i] === 1}">{{resultado | position}}</span>
+                  <div class="col-1" *ngFor="let resultado of piloto.resultados; let i = index">
+                    <span class="badge" [ngClass]="{'badge-oro': resultado == 1, 'badge-plata': resultado == 2, 'badge-bronce': resultado == 3, 'badge-info': resultado > 3, 'badge-dark' : resultado > 16, 'badge-violet' : piloto.vueltaRapida[i] === 1, 'badge-danger' : resultado < 0}">{{resultado | position}}</span>
                   </div>
                 </div>
               </div>
