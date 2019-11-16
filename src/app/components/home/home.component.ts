@@ -27,12 +27,13 @@ export class HomeComponent implements OnInit {
     });
 
     this._torneoService.getTorneos().subscribe(data => {
-      data.forEach(torneo => {
+      let torneos:Array<Torneo> = data.torneos;
+      torneos.forEach(torneo => {
         this._torneoService.calculatePointsDrivers(torneo.listaPilotos, torneo.puntajes);
       });
       this.torneos = new Promise<Torneo[]>((resolve) => {
         this.showLoading = false;
-        resolve(data);
+        resolve(torneos);
       });
     }, error => {
 

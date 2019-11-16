@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BaseService {
-  endpoint:string = "https://my-json-server.typicode.com/jmcavilla/zona-web-db";
-  endpointSanciones:string = "https://my-json-server.typicode.com/jmcavilla/zona-web-sanciones";
+  endpoint:string = "https://raw.githubusercontent.com/jmcavilla/zona-web-db/master/db.nomin.json";
+  endpointSanciones:string = "https://raw.githubusercontent.com/jmcavilla/zona-web-sanciones/master/db.json";
   constructor(_http:HttpClient) { }
 }

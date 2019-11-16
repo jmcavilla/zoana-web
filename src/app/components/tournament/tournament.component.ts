@@ -40,8 +40,9 @@ export class TournamentComponent implements OnInit {
 
   ngOnInit() {
     this._service.getTorneos().subscribe(data => {
+      let torneos:Torneo[] = data.torneos;
       if(this.idTorneo){
-        data.filter(tournament => {
+        torneos.filter(tournament => {
           if (tournament.id == this.idTorneo) {
             this.torneo = tournament;
           }
@@ -64,8 +65,10 @@ export class TournamentComponent implements OnInit {
 
   updateSanciones(){
     this._sancionesService.getSanciones().subscribe(data => {
+      console.log(data.sanciones);
+      let sancionesDB:Array<Sancion> = data.sanciones;
       this.sancionesList = [];
-      data.forEach(sancion => {
+      sancionesDB.forEach(sancion => {
         if (sancion.idTorneo === this.torneo.id){
           this.sancionesList.push(sancion);
         }

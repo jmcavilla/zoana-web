@@ -4,6 +4,7 @@ import { Torneo } from '../components/interfaces/torneo';
 import { BaseService } from './base.service';
 import { Piloto } from '../components/interfaces/piloto';
 import { Equipo } from '../components/interfaces/equipo';
+import { DataBase } from '../interfaces/database';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class TorneoService extends BaseService{
   constructor(private _http:HttpClient) { super(_http) }
 
   getTorneos(){
-    return this._http.get<Array<Torneo>>(`${this.endpoint}/torneos`);
+    return this._http.get<DataBase>(`${this.endpoint}`);
   }
 
   calculatePointsDrivers(listaPilotos:Piloto[],puntajes:number[]):void{
