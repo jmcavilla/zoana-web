@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { CountryFlagPipe } from './pipes/country-flag.pipe';
 import { RegulationComponent } from './components/regulation/regulation.component';
 import { NotFoundComponent } from './components/common/not-found/not-found.component';
+import { JumbotronComponent } from './components/common/jumbotron/jumbotron.component';
+import { ChampionshipComponent } from './components/championship/championship.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { NotFoundComponent } from './components/common/not-found/not-found.compo
     PositionPipe,
     CountryFlagPipe,
     RegulationComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    JumbotronComponent,
+    ChampionshipComponent
   ],
   imports: [
     BrowserModule,

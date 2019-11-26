@@ -17,10 +17,10 @@ export class HomeComponent implements OnInit {
   torneos:Promise<Torneo[]>;
   showLoading: boolean = true;
 
-  ngOnInit() {
+  async ngOnInit() {
     this._service.getHomeCarousel().subscribe(data => {
       console.log(data);
-      this.listHomeCarousel = data;
+      this.listHomeCarousel = data.home_carousel;
       console.log(this.listHomeCarousel);
     }, error => {
       console.log(error);

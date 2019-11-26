@@ -12,48 +12,9 @@
           <app-carousel [listCarousel]="listHomeCarousel"></app-carousel>
         </div>
       </div>
-      <div class="row justify-content-center m-4">
-        <div class="col-12">
-          <h1 class="text-center">Campeonatos</h1>
-        </div>
-        <div class="col-12" *ngFor="let torneo of torneos | async">
-          <div class="card mb-3">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img [src]="torneo.logo" class="card-img" alt="{{torneo.nombre}}">
-              </div>
-              <div class="col-md-4">
-                <div class="card-body">
-                  <h2 class="card-title">{{torneo.nombre}}</h2>
-                  <h4 class="card-text">Cantidad de fechas: {{torneo.listaCarreras.length}}</h4>
-                  <h4 class="card-text"><small class="text-muted">Pillotos inscriptos: {{torneo.listaPilotos.length}}</small></h4>
-                  <a href="#" [routerLink]="['/tournament', torneo.id]" class="btn btn-primary">+INFO</a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <ng-container *ngFor="let piloto of torneo.listaPilotos | orderBy:'puntos'; let pos = index">
-                  <div class="card text-white mb-1" [ngClass]="{'bg-oro ': (pos+1) == 1, 'bg-plata':(pos+1) == 2, 'bg-bronce':(pos+1) == 3}" style="max-width: 18rem;" *ngIf="(pos+1) < 4">
-                    <div class="card-body">
-                      <h5 class="card-title">{{pos+1}}° - {{piloto.puntos}} pts</h5>
-                      <p class="card-text">{{piloto.psnId}}</p>
-                    </div>
-                  </div>
-                </ng-container>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-3">Revisá nuestro reglamento</h1>
-          <p class="lead">Antes de correr con nosotros o si ya sos piloto y queres recordarlo, aca tenes nuestro reglamento para todos los torneos que realizamos.</p>
-          <hr class="my-2">
-          <p class="lead">
-            <a class="btn btn-primary btn-lg" [routerLink]="[ '/regulation' ]" role="button">Reglamento</a>
-          </p>
-        </div>
-      </div>
+      <app-jumbotron [title]="'Sumate a nuestro equipo'" [text]="'Si buscas un equipo donde nos aprendas y crezcas mientras te divertis, somos lo que necesitas!'" [buttonText]="'Sumate!'" [router]="'/team'" class="jumbotron jumbotron-fluid jumbotron-black jumbotron-team"></app-jumbotron>
+      <app-jumbotron [title]="'Participá en campeonatos'" [text]="'Organizamos torneos en varias plataformas y juegos. ¡Sumate!'" [buttonText]="'Participá'" [router]="'/championships'" class="jumbotron jumbotron-fluid jumbotron-black jumbotron-championships"></app-jumbotron>
+      <app-jumbotron [title]="'Revisá nuestro reglamento'" [text]="'Acá tenes nuestro reglamento para todos los torneos que realizamos.'" [buttonText]="'Reglamento'" [router]="'/regulation'" class="jumbotron jumbotron-fluid jumbotron-black jumbotron-rules"></app-jumbotron>
     </div>
 </ng-template>
 

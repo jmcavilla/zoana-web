@@ -12,4 +12,8 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToSocialPage(page:string){
+    window.open(page);
+  }
+
 }

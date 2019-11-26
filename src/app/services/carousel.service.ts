@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CarouselInfo } from '../components/interfaces/carousel-info';
 import { BaseService } from './base.service';
+import { DataBase } from '../interfaces/database';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class CarouselService extends BaseService{
 
   getHomeCarousel(){
 
-    return this._http.get<CarouselInfo[]>(`${this.endpoint}/home_carousel`);
+    return this._http.get<DataBase>(`${this.endpoint}`);
 
   }
 }

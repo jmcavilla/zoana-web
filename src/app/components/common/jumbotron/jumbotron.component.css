@@ -1,0 +1,20 @@
+
+.jumbotron-black{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-color: black;
+    color: white;
+}
+
+.jumbotron-team{
+    background-image: url(../../../../assets/images/zsrt.svg);
+}
+.jumbotron-championships{
+    background-image: url(../../../../assets/images/trophy.png);
+}
+
+.jumbotron-rules{
+    background-image: url(../../../../assets/images/note.png);
+    background-size: 22%;
+}
